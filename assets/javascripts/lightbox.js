@@ -113,4 +113,27 @@ $(document).ready(function() {
         preload: false
       }
   });
+
+
+
+
+
+   $('a[href*="www.dropbox.com"][href*=".png"],a[href*="www.dropbox.com"][href*=".jpg"]').each(function () {
+      var elem = $(this);
+      var imageUrl = this.href+'?&raw=1';
+
+      var fancyBoxLink = $('<a/>', {href: imageUrl, 'class': 'lightbox', rel : 'issue-history-attachements'}).append(
+        $('<img/>', {src: imageUrl, 'class': '_dropbox-image', style: 'width:400px;display:block;'})
+      );
+
+      elem.after(fancyBoxLink);
+   });
+
+    $(".controller-issues.action-show .wiki a.lightbox").fancybox({
+        prevEffect              : 'none',
+        nextEffect              : 'none',
+        openSpeed               : 400,
+        closeSpeed              : 200
+    });
 });
+
